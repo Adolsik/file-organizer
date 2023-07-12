@@ -2,7 +2,8 @@
 Application analyze and categorize your files based on their extension and move them to into labeled folders, saving you valuable time and effort.
 
 
-![intro](https://github.com/Adolsik/File-Organizer/assets/75134645/c8cb8251-9ced-429d-8cde-d48479e6df80)
+![Bez tytułu](https://github.com/Adolsik/File-Organizer/assets/75134645/45cf6f58-bfba-4860-b53e-4f181a9f2cde)
+
 # Supported extensions:
     '.m4a'
     '.flac'
