@@ -1,5 +1,5 @@
 # Introduction
-Application analyze and categorize your files based on their extension and move them to into labeled folders, saving you valuable time and effort.
+Application analyze and categorize your files based on their extension and move them into labeled folders, saving you valuable time and effort.
 
 
 ![Bez tytułu](https://github.com/Adolsik/File-Organizer/assets/75134645/45cf6f58-bfba-4860-b53e-4f181a9f2cde)
