@@ -1,6 +1,5 @@
 import tkinter
 from tkinter import messagebox
-import threading
 import os
 import shutil
 
@@ -55,6 +54,7 @@ def organize(path: str, progress_bar, info):
         messagebox.showwarning('Warning', 'Folders already exist. Delete them and try again.')
         progress_bar.stop()
         info.insert(tkinter.END, f'\n Error occurred. Try again \n')
+        return 0
     info.insert(tkinter.END, '\n Folders created \n')
 
     # Moving files to directories
@@ -65,7 +65,7 @@ def organize(path: str, progress_bar, info):
 
             file_stats = os.stat(os.path.join(path, file))
             file_size_mb = file_stats.st_size / (1024 * 1024)
-            extension = file[file.find('.'):len(file)].lower()
+            name, extension = os.path.splitext(file.lower())
             info.see('end')
 
             # If mp4's size is more than 10MB, app move it into Videos instead of Music
@@ -76,13 +76,14 @@ def organize(path: str, progress_bar, info):
             else:
                 try:
                     dir_to_move = file_ext_dict.get(extension)
-                    info.insert(tkinter.END, f'\n Moving {file} into {dir_to_move} \n Size: {round(file_size_mb,3)} MB \n')
+                    info.insert(tkinter.END, f'\n Moving {file} into {dir_to_move} \n Size: {round(file_size_mb,3)}'
+                                             f' MB \n')
                     shutil.move(os.path.join(path, file), os.path.join(path, dir_to_move))
                 except TypeError:
                     shutil.move(os.path.join(path, file), os.path.join(path, 'Other'))
 
     progress_bar.stop()
-    info.see('end')
     info.insert(tkinter.END, f'\n Success! \n')
+    info.see('end')
     info.config(state='disabled')
     messagebox.showinfo('Task Completed', 'All files moved into successfully')

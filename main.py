@@ -7,7 +7,6 @@ import threading
 import organizer
 import os
 
-
 root = Tk()
 root.geometry('350x450')
 root.title('File Organizer')
@@ -61,7 +60,7 @@ def main_menu():
         button_start.config(state='disabled')
 
         organize_progress_bar = tkinter.ttk.Progressbar(frame_main, orient=HORIZONTAL, length=300, mode='indeterminate')
-        organize_progress_bar.place(x=10, y=140)
+        organize_progress_bar.place(x=10, y=137)
 
         organize_task = threading.Thread(target=organizer.organize, args=(dir_path, organize_progress_bar,
                                                                           output_text,), daemon=True)
@@ -88,7 +87,7 @@ def main_menu():
     button_quit.place(x=80, y=400, height=30, width=200)
 
     label_output = tkinter.ttk.Label(frame_main, text='Output', font=('italic', 10))
-    label_output.place(x=135, y=140)
+    label_output.place(x=135, y=145)
 
     output_text = Text(frame_main, width=52, height=11, font=('italic', 8), state='normal',)
     output_text.place(x=0, y=165)
