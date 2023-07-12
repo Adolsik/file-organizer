@@ -2,7 +2,10 @@
 Application analyze and categorize your files based on their extension and move them into labeled folders, saving you valuable time and effort.
 
 
-![Bez tytułu](https://github.com/Adolsik/File-Organizer/assets/75134645/45cf6f58-bfba-4860-b53e-4f181a9f2cde)
+![intro](https://github.com/Adolsik/File-Organizer/assets/75134645/8ce169a2-9589-4de7-8911-0a7d27690973)
+
+# Usage
+To run the application you must download the latest release archive and open file 'main.exe'
 
 # Supported extensions:
     '.m4a'
