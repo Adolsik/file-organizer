@@ -40,5 +40,7 @@ To run the application you must download the latest release archive and open fil
     '.zip'
     '.ico'
 - Unsupported extension files are moved into folder named 'Other'.
+# Credits
+- Thanks to rdbende for his theme: https://github.com/rdbende/Azure-ttk-theme
 # New features coming soon!
 - Watch out for new features upcoming in next releases.
