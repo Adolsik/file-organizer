@@ -35,6 +35,7 @@ Application analyze and categorize your files based on their extension and move 
     '.txt' 
     '.rar' 
     '.zip'
+    '.ico'
 - Unsupported extension files are moved into folder named 'Other'.
 # New features coming soon!
 - Watch out for new features upcoming in next releases.
