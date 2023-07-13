@@ -12,7 +12,7 @@ Application analyze and categorize your files based on their extension and move 
 - Click button 'Config'
 - The config file will open up. Now you can rename folders or add your own extensions at the end of the file. 
 ![config](https://github.com/Adolsik/File-Organizer/assets/75134645/7a9b20e3-51f4-4b5c-9ad7-fde91c95e5fb)
-- Add extensions like this: `.xyz XYZ`
+- Add extensions like this: `.xyz: XYZ`
 - Save the config file and you are ready to go!
    
 # Default config:
