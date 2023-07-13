@@ -18,18 +18,25 @@ root.tk.call("set_theme", "light")
 dir_path = StringVar()
 
 
-def main_menu():
-    # 1.0.1b
-    def change_theme():
-        if root.tk.call("ttk::style", "theme", "use") == "azure-dark":
-            # Set light theme
-            root.tk.call("set_theme", "light")
-            switch_themes.config(text='Dark mode')
-        else:
-            # Set dark theme
-            root.tk.call("set_theme", "dark")
-            switch_themes.config(text='Light mode')
+# 1.0.1b
+def change_theme():
+    if root.tk.call("ttk::style", "theme", "use") == "azure-dark":
+        # Set light theme
+        root.tk.call("set_theme", "light")
+        switch_themes.config(text='Dark mode')
+    else:
+        # Set dark theme
+        root.tk.call("set_theme", "dark")
+        switch_themes.config(text='Light mode')
 
+
+# 1.0.2
+def config():
+    config_task = threading.Thread(target=organizer.config_ext, daemon=True)
+    config_task.start()
+
+
+def main_menu():
     def select_path():
         global dir_path
 
@@ -53,9 +60,6 @@ def main_menu():
         entry_path_info.insert(0, f'{dir_path}')
         button_start.config(state='normal')
 
-    def quit_m():
-        root.destroy()
-
     def start():
         button_start.config(state='disabled')
 
@@ -67,14 +71,14 @@ def main_menu():
         organize_task.start()
 
     frame_main = LabelFrame(root, padx=10, pady=10)
-    frame_main.place(x=2, y=40, height=350, width=348)
+    frame_main.place(x=2, y=42, height=350, width=348)
 
     button_select_path = tkinter.ttk.Button(master=frame_main, text='Select a path', command=select_path)
     button_select_path.place(x=5, y=10, width=100)
 
     entry_path_info = tkinter.ttk.Entry(frame_main, font=('italic', '8'), justify=LEFT)
     entry_path_info.insert(0, 'Path: None')
-    entry_path_info.place(x=113, y=13, width=200, height=25)
+    entry_path_info.place(x=113, y=11, width=200, height=28)
 
     label_file_count = tkinter.ttk.Label(frame_main, text='Files: 0', justify=LEFT)
     label_file_count.place(x=10, y=47)
@@ -83,13 +87,13 @@ def main_menu():
     button_start.place(x=60, y=100, width=200)
     button_start.config(state='disabled')
 
-    button_quit = tkinter.ttk.Button(master=root, text="Quit", command=quit_m,)
+    button_quit = tkinter.ttk.Button(master=root, text="Quit", command=lambda: root.destroy(),)
     button_quit.place(x=80, y=400, height=30, width=200)
 
     label_output = tkinter.ttk.Label(frame_main, text='Output', font=('italic', 10))
     label_output.place(x=135, y=145)
 
-    output_text = Text(frame_main, width=52, height=11, font=('italic', 8), state='normal',)
+    output_text = Text(frame_main, width=52, height=11, font=('italic', 8), state='disabled',)
     output_text.place(x=0, y=165)
 
     sb_output = tkinter.ttk.Scrollbar(frame_main, orient='vertical')
@@ -99,17 +103,21 @@ def main_menu():
     sb_output.config(command=output_text.yview)
 
     sb_path = tkinter.ttk.Scrollbar(frame_main, orient='horizontal')
-    sb_path.place(x=113, y=40, height=20, width=200)
-
-    switch_themes = tkinter.ttk.Checkbutton(root, text='Dark mode', style='Switch.TCheckbutton', command=change_theme)
-    switch_themes.place(x=0, y=5)
+    sb_path.place(x=113, y=39, height=20, width=200)
 
     entry_path_info.config(xscrollcommand=sb_path.set)
     sb_path.config(command=entry_path_info.xview)
 
 
+switch_themes = tkinter.ttk.Checkbutton(root, text='Dark mode', style='Switch.TCheckbutton', command=change_theme)
+switch_themes.place(x=0, y=5)
+
+button_config = tkinter.ttk.Button(root, text='Config', command=config,)
+button_config.place(x=240, y=5, width=100)
+
 main_menu_task = threading.Thread(target=main_menu, daemon=True)
 main_menu_task.start()
+
 
 root.mainloop()
 
