@@ -1,8 +1,9 @@
 # Introduction
 Application analyze and categorize your files based on their extension and move them into labeled folders, saving you valuable time and effort. You can use a default template or configure your own!
 
-![light_theme](https://github.com/Adolsik/File-Organizer/assets/75134645/5730e7fa-e60e-4ce1-b4ee-c71e714ed3d2)
-![dark_theme](https://github.com/Adolsik/File-Organizer/assets/75134645/e34a3089-5657-41c8-92f4-806d42505e1e)
+![light_theme](https://github.com/Adolsik/File-Organizer/assets/75134645/09a90a65-0176-4221-8fc7-ab15fe89e5a3)
+![dark_theme](https://github.com/Adolsik/File-Organizer/assets/75134645/de73ffa9-8220-400b-bf05-52026cff8323)
+
 
 # Getting Started
 - To run the application you must download and unpack the latest release archive and open file 'main.exe'
