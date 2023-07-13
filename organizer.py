@@ -18,7 +18,7 @@ def organize(path: str, progress_bar, info):
             line = line.strip()
             if line:
                 key, value = line.split(':')
-                file_ext_dict[key] = value
+                file_ext_dict[key] = value.strip()
 
     dir_names = set(file_ext_dict.values())
 
@@ -53,7 +53,7 @@ def organize(path: str, progress_bar, info):
                                          f' MB \n')
                 shutil.move(os.path.join(path, file), os.path.join(path, dir_to_move))
             except TypeError:
-                shutil.move(os.path.join(path, file), os.path.join(path, ' Other'))
+                shutil.move(os.path.join(path, file), os.path.join(path, 'Other'))
 
     progress_bar.stop()
     info.insert(tkinter.END, f'\n Success! \n')
