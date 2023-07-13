@@ -1,46 +1,53 @@
 # Introduction
-Application analyze and categorize your files based on their extension and move them into labeled folders, saving you valuable time and effort.
+Application analyze and categorize your files based on their extension and move them into labeled folders, saving you valuable time and effort. You can use a default template or configure your own!
 
-![intro_light](https://github.com/Adolsik/File-Organizer/assets/75134645/681836dd-f047-4f58-b5a5-060d86775205)
-![intro_dark](https://github.com/Adolsik/File-Organizer/assets/75134645/3ba960f1-5554-416c-9ae0-2873486e5714)
+![light_theme](https://github.com/Adolsik/File-Organizer/assets/75134645/5730e7fa-e60e-4ce1-b4ee-c71e714ed3d2)
+![dark_theme](https://github.com/Adolsik/File-Organizer/assets/75134645/e34a3089-5657-41c8-92f4-806d42505e1e)
 
+# Getting Started
+- To run the application you must download and unpack the latest release archive and open file 'main.exe'
 # Usage
-- To run the application you must download the latest release archive and open file 'main.exe'
-
-# Supported extensions:
-    '.m4a'
-    '.flac'
-    '.mp3'
-    '.mp4'
-    '.wav'
-    '.wma' 
-    '.aac' 
-    '.jpg'
-    '.jpeg'
-    '.png' 
-    '.gif' 
-    '.tiff'
-    '.psd' 
-    '.eps' 
-    '.ai' 
-    '.mov' 
-    '.wmv' 
-    '.avi' 
-    '.avchd' 
-    '.flv' 
-    '.f4v' 
-    '.swf' 
-    '.mkv' 
-    '.webm'
-    '.html5'
-    '.pdf' 
-    '.exe' 
-    '.txt' 
-    '.rar' 
-    '.zip'
-    '.ico'
-- Unsupported extension files are moved into folder named 'Other'.
+## Add your own extensions and/or rename folder names.
+- Click button 'Config'
+- The config file will open up. Now you can rename folders or add your own extensions at the end of the file. 
+![config](https://github.com/Adolsik/File-Organizer/assets/75134645/7a9b20e3-51f4-4b5c-9ad7-fde91c95e5fb)
+- Add extensions like this: `.xyz XYZ`
+- Save the config file and you are ready to go!
+   
+# Default config:
+    .m4a: Music
+    .flac: Music
+    .mp3: Music
+    .mp4: Videos
+    .wav: Music
+    .wma: Music
+    .aac: Music
+    .jpg: Images
+    .jpeg: Images
+    .png: Images
+    .gif: Images
+    .tiff: Images
+    .psd: Images
+    .eps: Images
+    .ai: Images
+    .ico: Images
+    .mov: Videos
+    .wmv: Videos
+    .avi: Videos
+    .avchd: Videos
+    .flv: Videos
+    .f4v: Videos
+    .swf: Videos
+    .mkv: Videos
+    .webm: Videos
+    .html5: Videos
+    .pdf: PDFs
+    .exe: Executables
+    .txt: Text files
+    .rar: Archives
+    .zip: Archives
+    default: Other
+Application supports these extensions by default. You can add more extensions in config. [Go to 'Usage'](#usage)
 # Credits
 - Thanks to rdbende for his theme: https://github.com/rdbende/Azure-ttk-theme
-# New features coming soon!
-- Watch out for new features upcoming in next releases.
+
