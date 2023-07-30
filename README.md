@@ -47,7 +47,6 @@ Application analyze and categorize your files based on their extension and move 
     .txt: Text files
     .rar: Archives
     .zip: Archives
-    default: Other
 Application supports these extensions by default. You can add more extensions in config. [Go to 'Usage'](#usage)
 # Credits
 - Thanks to rdbende for his theme: https://github.com/rdbende/Azure-ttk-theme
