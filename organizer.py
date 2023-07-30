@@ -12,6 +12,12 @@ def config_ext():
 
 
 def organize(path: str, progress_bar, info):
+    # Returns error if selected path is empty or not found
+    try:
+        files = os.listdir(path)
+    except FileNotFoundError:
+        return messagebox.showerror('Error', 'Selected path not found')
+
     file_ext_dict.clear()
     with open('config.txt', 'r') as file:
         for line in file:
@@ -20,16 +26,14 @@ def organize(path: str, progress_bar, info):
                 key, value = line.split(':')
                 file_ext_dict[key] = value.strip()
 
-    dir_names = set(file_ext_dict.values())
-
+    # Progress bar and info
     progress_bar.start()
     info.config(state='normal')
     info.delete('1.0', tkinter.END)
     info.insert(tkinter.END, f'Organizing files in {path} \n')
 
-    # Organize files
-    files = os.listdir(path)
 
+    # Organize files
     for file in files:
         if os.path.isfile(os.path.join(path, file)):
             file_stats = os.stat(os.path.join(path, file))
@@ -61,5 +65,6 @@ def organize(path: str, progress_bar, info):
     info.insert(tkinter.END, f'\n Success! \n')
     info.see('end')
     info.config(state='disabled')
+    progress_bar.stop()
     messagebox.showinfo('Task Completed', 'All files moved into successfully')
     os.system(f'start {path}')

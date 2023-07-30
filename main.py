@@ -18,6 +18,7 @@ root.tk.call("set_theme", "light")
 dir_path = StringVar()
 
 
+
 # 1.0.1b
 def change_theme():
     if root.tk.call("ttk::style", "theme", "use") == "azure-dark":

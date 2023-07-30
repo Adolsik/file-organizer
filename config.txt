@@ -29,4 +29,3 @@
 .txt: Text files
 .rar: Archives
 .zip: Archives
-default: Other
