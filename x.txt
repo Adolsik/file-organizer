@@ -1,0 +1,129 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cstring>
+
+using namespace std;
+
+// Klasa A
+class A {
+protected:
+    char* str;
+
+public:
+    A() : str(nullptr) {}
+
+    A(const char* s) {
+        str = new char[strlen(s) + 1];
+        strcpy(str, s);
+    }
+
+    A(const A& other) {
+        str = new char[strlen(other.str) + 1];
+        strcpy(str, other.str);
+    }
+
+    A& operator=(const A& other) {
+        if (this != &other) {
+            delete[] str;
+            str = new char[strlen(other.str) + 1];
+            strcpy(str, other.str);
+        }
+        return *this;
+    }
+
+    virtual ~A() {
+        cout << "Destructor A for: " << (str ? str : "null") << endl;
+        delete[] str;
+    }
+
+    const char* getStr() const {
+        return str;
+    }
+
+    void print() const {
+        cout << str;
+    }
+};
+
+// Klasa B
+class B {
+protected:
+    int i;
+
+public:
+    B(int val = 0) : i(val) {}
+
+    virtual ~B() {}
+
+    int getI() const {
+        return i;
+    }
+
+    void print() const {
+        cout << i;
+    }
+};
+
+// Klasa C
+class C : public A, public B {
+public:
+    C(int val, const char* s) : A(s), B(val) {}
+
+    // Dla sortowania i unikalności po tytule (czyli po `str`)
+    bool operator<(const C& other) const {
+        return strcmp(this->getStr(), other.getStr()) < 0;
+    }
+
+    bool operator==(const C& other) const {
+        return strcmp(this->getStr(), other.getStr()) == 0;
+    }
+
+    void print() const {
+        cout << "[" << getI() << ", " << getStr() << "]";
+    }
+};
+
+// Alias
+using CC = C;
+
+// Szablon funkcji
+template <class T>
+void PrintToScreen(const T& ob, const char* title) {
+    cout << title << endl;
+    for (const auto& elem : ob) {
+        elem.print();
+        cout << " ";
+    }
+    cout << "\n" << endl;
+}
+
+// Główna funkcja
+int main() {
+    vector<CC> vect;
+    CC tab_C[] = {
+        CC(1, "aaa"), CC(2, "ccc"), CC(3, "bbb"),
+        CC(4, "ccc"), CC(5, "bbb")
+    };
+
+    const size_t no_elem = sizeof(tab_C) / sizeof(CC);
+
+    // Dodajemy elementy do vect
+    vect.insert(vect.end(), tab_C, tab_C + no_elem);
+
+    // Przed sortowaniem
+    PrintToScreen(vect, "before sorting");
+
+    // Sortujemy po nazwie
+    sort(vect.begin(), vect.end());
+
+    PrintToScreen(vect, "after sorting");
+
+    // Usuwamy duplikaty po tytule
+    vect.erase(unique(vect.begin(), vect.end()), vect.end());
+
+    PrintToScreen(vect, "finally:");
+
+    vect.clear(); // wywołuje destruktory
+    return 0;
+}
